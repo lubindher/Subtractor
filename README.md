@@ -43,15 +43,49 @@ A full subtractor is a combinational circuit that performs subtraction involving
 
 
 ## Program:
-
+### 1.Half Subtractor
+```
+module exp4a(a,b,diff,borrow);
+input a,b;
+output diff,borrow;
+wire adash;
+xor(diff,a,b);
+not(adash,a);
+and(borrow,adash,b);
+endmodule
+```
+### 2.Full Subtractor
+```
+module exp4b(a,b,c,diff,borrow);
+input a,b,c;
+output diff,borrow;
+wire adash,x,p,q,r;
+xor(x,b,c);
+xor(diff,a,x);
+not(adash,a);
+and(p,adash,c);
+and(q,b,c);
+and(r,adash,b);
+or(borrow,p,q,r);
+endmodule
+```
 
 ## RTL Schematic:
+### 1.Half Subtractor
+![image](https://github.com/Afsarjumail/Subtractor/assets/118343395/19fb7e72-2b47-4b84-9830-82e0d3c818e9)
+
+### 2.Full Subtractor
+![image](https://github.com/Afsarjumail/Subtractor/assets/118343395/589b2172-1d2b-4db3-aae1-0bf16027e5cb)
 
 
 
 
 ## Timing Diagram:
+### 1.Half Subtractor
+![image](https://github.com/Afsarjumail/Subtractor/assets/118343395/af2ebe53-6201-4280-88f6-589e69d5ebbd)
 
+### 2.Full Subtractor:
+![image](https://github.com/Afsarjumail/Subtractor/assets/118343395/60f88a02-d961-4f07-a00b-f0d2cb7fdb4e)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables are verified using Verilog HDL.
